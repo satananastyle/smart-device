@@ -1,0 +1,15 @@
+@mixin mono($size, $line) {
+  font-family: "PT Mono","Courier New", monospace;
+  font-style: normal;
+  font-weight: 400;
+  font-size: $size;
+  line-height: $line;
+}
+
+@mixin roboto($weight, $size, $line) {
+  font-family: "Roboto Condensed","Arial", sans-serif;
+  font-style: normal;
+  font-weight: $weight;
+  font-size: $size;
+  line-height: $line;
+}

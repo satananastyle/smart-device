@@ -1,0 +1,20 @@
+.button {
+  display: inline-block;
+
+  padding: 13px 12px 7px 11px;
+
+  @include roboto(700, 14px, 16px);
+  text-align: center;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+
+  border: 1px solid #ffffff;
+  border-radius: 5px;
+
+  background-color: transparent;
+
+  &:hover,
+  &:focus {
+    cursor: pointer;
+  }
+}

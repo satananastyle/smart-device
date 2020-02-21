@@ -1,0 +1,98 @@
+.header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+
+  width: 73.5%;
+  min-width: 1024px;
+
+  margin: 0 auto;
+  padding-top: 33px;
+
+  a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    text-decoration: none;
+    @include mono(16px, 18px);
+    color: #ffffff;
+
+    &:hover,
+    &:focus {
+      cursor: pointer;
+    }
+  }
+
+  .header__logo {
+    margin-left: 0;
+    margin-right: auto;
+  }
+
+  .header__mail {
+    width: 135px;
+    padding: 0;
+    margin-right: 6.3%;
+  }
+
+  .header__tel {
+    width: 207px;
+    padding: 0;
+    margin-right: 3.5%;
+  }
+}
+
+@media (max-width: $tablet-width) {
+  .header {
+    min-width: 720px;
+    padding-top: 19px;
+
+    a {
+      font-size: 0;
+      line-height: 0;
+    }
+
+    .header__mail {
+      width: 25.33px;
+      padding: 0;
+      margin-right: 33px;
+
+      svg {
+        width: 25.33px;
+        height: 18.67px;
+      }
+    }
+
+    .header__tel {
+      width: 24px;
+      padding: 0;
+      margin-right: 0;
+
+      svg {
+        width: 24px;
+        height: 24px;
+      }
+    }
+
+    .button {
+      display: none;
+    }
+  }
+}
+
+@media (max-width: $mobile-width) {
+  .header {
+    width: 90%;
+    min-width: 288px;
+    padding-top: 16.5px;
+
+    .header__logo {
+      width: 38px;
+    }
+
+    .header__mail {
+      margin-right: 23px;
+    }
+  }
+}
