@@ -6,42 +6,43 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Smart Device</title>
   <link rel="stylesheet" href="css/style.min.css">
-  <script>
-  // Picture element HTML5 shiv
-  document.createElement( "picture" );
-</script>
-<script src="js/picturefill.js" async></script>
 </head>
 <div class="sprite">
   <include src="build/img/sprite_auto.svg"></include>
 </div>
 <body>
   <header class="header">
-    <a class="logo logo--header" href="#" aria-label="Логотип">
-      <picture>
-        <source media="(max-width: 767px)" srcset="img/logo-mobile.svg">
-        <img src="img/logo.svg" width="202" height="52" alt="Логотип магазина">
-      </picture>
-    </a>
-    <a class="header__mail" href="mailto:info@sd.ru">
-      <svg width="19px" height="14px">
-        <use xlink:href="#icon-envelope"></use>
-      </svg>
-      info@sd.ru
-    </a>
-    <a class="header__tel" href="tel:84950005252">
-      <svg width="18px" height="18px">
-        <use xlink:href="#icon-phone"></use>
-      </svg>
-      +7 (495) 000 52 52
-    </a>
-    <a class="button" href="callme.html">заказать звонок</a>
+    <nav class="header__nav">
+      <a class="logo logo--header" href="#" aria-label="Логотип">
+        <img src="img/svg/logo.svg" width="202" height="52" alt="Логотип магазина">
+      </a>
+      <a class="header__link header__link--mail" href="mailto:info@sd.ru" aria-label="Написать нам">
+        <svg width="19px" height="14px">
+          <use xlink:href="#icon-envelope"></use>
+        </svg>
+        info@sd.ru
+      </a>
+      <a class="header__link header__link--tel" href="tel:84950005252" aria-label="Позвонить нам">
+        <svg width="18px" height="18px">
+          <use xlink:href="#icon-phone"></use>
+        </svg>
+        +7 (495) 000 52 52
+      </a>
+      <a class="button" href="#">заказать звонок</a>
+    </nav>
+    <div class="header__intro homescreen">
+      <h1>печатные платы</h1>
+      <p>производство и монтаж, поставка комплектующих, блоков и модулей</p>
+      <a class="homescreen__button " href="#">получить бесплатную консультацию</a>
+      <a class="homescreen__button homescreen__button--mobile" href="#">бесплатная консультация</a>
+      <a class="homescreen__scroll" href="#">Cкролл вниз</a>
+    </div>
   </header>
   <footer class="footer">
     <div class="footer__wrapper">
       <div class="social">
         <a class="logo logo--footer" href="#">
-          <img src="img/logo-footer.svg" width="216" height="52" alt="Логотип магазина">
+          <img src="img/svg/logo-footer.svg" width="216" height="52" alt="Логотип магазина">
         </a>
         <p>1999-2018 SD Service Devices</p>
         <ul>

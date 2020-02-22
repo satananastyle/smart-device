@@ -26,7 +26,7 @@ function openDescription(evt) {
       element.previousElementSibling.style = '';
     });
     content.style.display = 'block';
-    button.style = 'background-image: url(../img/close-button.svg)';
+    button.style = 'background-image: url(img/svg/close-button.svg)';
   } else {
     content.style.display = 'none';
     button.style = '';

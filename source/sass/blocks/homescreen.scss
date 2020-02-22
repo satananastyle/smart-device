@@ -1,0 +1,165 @@
+.homescreen {
+  position: relative;
+
+  width: 718px;
+  margin-right: auto;
+  margin-left: 13%;
+
+  h1 {
+    margin: 0;
+    margin-bottom: 26px;
+
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+
+    @include roboto(700, 80px, 94px);
+  }
+
+  p {
+    position: relative;
+
+    margin: 0;
+    margin-bottom: 45px;
+    padding: 0;
+    padding-left: 97px;
+
+    @include mono(22px, 34px);
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 16px;
+      left: 2px;
+
+      width: 66px;
+      height: 2px;
+
+      background-color: white;
+    }
+  }
+
+  .homescreen__button {
+    display: inline-block;
+    width: 407px;
+    margin-bottom: 276px;
+    margin-left: 97px;
+    padding-top: 17px;
+    padding-bottom: 17px;
+
+    text-align: center;
+    color: #ffffff;
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing: 0.05em;
+
+    background-color: $blue;
+    border: 1px solid $blue;
+    border-radius: 5px;
+
+    @include roboto(700, 16px, 19px);
+
+    &:hover,
+    &:focus {
+      color: $blue;
+
+      background-color: white;
+      cursor: pointer;
+    }
+
+    &--mobile {
+      display: none;
+    }
+  }
+
+  .homescreen__scroll {
+    position: absolute;
+    bottom: 127px;
+    left: -35px;
+
+    display: block;
+    width: 93px;
+
+    color: white;
+    text-decoration: none;
+
+    transform: rotate(-90deg);
+    opacity: 0.5;
+
+    @include mono(14px, 16px);
+
+    &:hover,
+    &:focus {
+      color: $blue;
+
+      outline: none;
+    }
+  }
+}
+
+@media (max-width: $tablet-width) {
+  .homescreen {
+    width: 470px;
+    margin-left: 11.5%;
+
+    h1 {
+      margin-bottom: 29px;
+
+      font-size: 60px;
+      line-height: 70px;
+      letter-spacing: 0.07em;
+    }
+
+    p {
+      margin-bottom: 55px;
+      padding-left: 50px;
+
+      font-size: 18px;
+      line-height: 156.8%;
+
+      &::before {
+        width: 33px;
+      }
+    }
+
+    .homescreen__button {
+      width: 379px;
+      margin-bottom: 163px;
+      margin-left: 50px;
+    }
+
+    .homescreen__scroll {
+      display: none;
+    }
+  }
+}
+
+@media (max-width: $tablet-width) {
+  .homescreen {
+    width: 290px;
+    margin: 0 auto;
+
+    h1 {
+      margin-bottom: 27px;
+
+      font-size: 40px;
+      line-height: 47px;
+    }
+
+    p {
+      margin-bottom: 42px;
+
+      font-size: 16px;
+    }
+
+    .homescreen__button {
+      display: none;
+      width: 100%;
+      margin-bottom: 70px;
+      margin-left: 0;
+
+      &--mobile {
+        display: inline-block;
+      }
+    }
+  }
+}

@@ -1,17 +1,18 @@
 .button {
   display: inline-block;
+  padding: 12px 12px 11px;
 
-  padding: 13px 12px 7px 11px;
-
-  @include roboto(700, 14px, 16px);
   text-align: center;
-  letter-spacing: 0.05em;
+  color: #ffffff;
   text-transform: uppercase;
+  text-decoration: none;
+  letter-spacing: 0.05em;
 
+  background-color: transparent;
   border: 1px solid #ffffff;
   border-radius: 5px;
 
-  background-color: transparent;
+  @include roboto(700, 14px, 16px);
 
   &:hover,
   &:focus {

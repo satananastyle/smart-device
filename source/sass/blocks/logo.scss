@@ -1,12 +1,13 @@
 .logo {
   display: inline-block;
-  vertical-align: middle;
   margin: 0;
 
+  vertical-align: middle;
 
   &:hover,
   &:focus {
-    cursor: pointer;
+    outline: none;
+    cursor: default;
   }
 
   &--header {
@@ -27,7 +28,16 @@
 @media (max-width: $mobile-width) {
   .logo {
     &--header {
+      display: block;
       width: 38px;
+      height: 38px;
+
+      img {
+        height: 100%;
+
+        object-fit: cover;
+        object-position: left top;
+      }
     }
 
     &--footer {
