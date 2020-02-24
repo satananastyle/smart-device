@@ -13,12 +13,6 @@
     @include roboto(400, 15px, 16px);
   }
 
-  div {
-    display: flex;
-    flex-wrap: wrap;
-    width: 100%;
-  }
-
   ul {
     margin: 0;
     padding: 0;
@@ -45,6 +39,12 @@
       @include hover;
     }
   }
+}
+
+.contents__description {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
 }
 
 @media (max-width: $tablet-width) {
@@ -80,9 +80,9 @@
       content: "";
       position: absolute;
       bottom: 0;
-      left: -15px;
+      left: -100%;
 
-      width: 100vw;
+      width: 200vw;
       height: 1px;
 
       background-color: #626962;

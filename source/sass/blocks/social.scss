@@ -2,9 +2,11 @@
   margin-right: 7%;
   padding: 0;
 
+
   ul {
     display: flex;
     flex-wrap: wrap;
+    max-width: 252px;
     margin: 0;
     padding: 0;
 
@@ -61,6 +63,10 @@
     margin-bottom: 38px;
     padding-bottom: 22px;
 
+    ul {
+      max-width: 216px;
+    }
+
     ul li:last-child {
       margin: 0;
     }
@@ -69,9 +75,9 @@
       content: "";
       position: absolute;
       bottom: 0;
-      left: -25px;
+      left: -100%;
 
-      width: 100vw;
+      width: 200vw;
       height: 1px;
 
       background-color: #626962;
@@ -109,6 +115,7 @@
     }
 
     ul {
+      max-width: 462px;
       margin-bottom: 50px;
     }
   }

@@ -1,6 +1,9 @@
 .copyright {
   position: relative;
 
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
   width: 100%;
   margin-top: 59px;
   padding-top: 14px;
@@ -48,9 +51,9 @@
     content: "";
     position: absolute;
     top: 0;
-    left: 0;
+    left: -100%;
 
-    width: 100%;
+    width: 200vw;
     height: 1px;
 
     background-color: #626962;
