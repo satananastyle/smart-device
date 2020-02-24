@@ -25,3 +25,47 @@ img {
   max-width: 100%;
   height: auto;
 }
+
+.container {
+  width: 100%;
+  max-width: 1462px;
+  margin: 0 auto;
+  padding: 0 25px;
+}
+
+@media (max-width: $tablet-width) {
+  .container {
+    width: 100%;
+  }
+}
+
+@media (max-width: $mobile-width) {
+  .container {
+    padding: 0 15px;
+  }
+}
+.sprite {
+  display: none;
+}
+
+.visually-hidden {
+  position: absolute;
+
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+
+  clip: rect(0 0 0 0);
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.no-js {
+  display: block;
+}

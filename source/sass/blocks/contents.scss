@@ -72,10 +72,6 @@
       margin-left: 0;
     }
 
-    div {
-      display: none;
-    }
-
     ul {
       margin-bottom: 26px;
     }
@@ -92,5 +88,9 @@
       background-color: #626962;
       opacity: 0.5;
     }
+  }
+
+  .contents__description {
+    display: none;
   }
 }

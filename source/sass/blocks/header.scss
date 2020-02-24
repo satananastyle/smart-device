@@ -2,12 +2,13 @@
   color: white;
 
   background-color: $black;
-  background-image: url("../img/header-desktop@1x.jpg");
+  background-image: url("../img/circuit-board-desktop@1x.png"), url("../img/header-desktop@1x.png");
   background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 
   @media (min-resolution: $retina-dpi), (min-resolution: $retina-dppx) {
-    background-image: url("../img/header-desktop@2x.jpg");
-    background-size: cover;
+    background-image: url("../img/circuit-board-desktop@2x.png"), url("../img/header-desktop@2x.png");
   }
 
   .header__nav {
@@ -16,7 +17,6 @@
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    min-width: 900px;
     margin: 0 auto;
     margin-bottom: 228px;
     padding-top: 31px;
@@ -29,7 +29,7 @@
     flex-wrap: wrap;
     align-items: center;
     min-width: 430px;
-    max-width: 55%;
+    max-width: 60%;
     margin: 0;
     padding: 0;
 
@@ -64,35 +64,24 @@
 
     &:hover svg,
     &:focus svg {
+      transition: 0.5s;
+
       fill: white;
-    }
-  }
-
-  .button {
-    width: 180px;
-    margin-left: 51px;
-
-    &:hover,
-    &:focus {
-      background-color: $blue;
-      border-color: $blue;
-
-      @include hover(white);
     }
   }
 }
 
 @media (max-width: $tablet-width) {
   .header {
-    background-image: url("../img/header-tablet@1x.jpg");
+    background-image: url("../img/circuit-board-tablet@1x.png"), url("../img/header-tablet@1x.png");
+    background-position: top, center;
+    background-size: 100vw auto;
 
     @media (min-resolution: $retina-dpi), (min-resolution: $retina-dppx) {
-      background-image: url("../img/header-tablet@2x.jpg");
-      background-size: 100vw auto;
+      background-image: url("../img/circuit-board-tablet@2x.png"), url("../img/header-tablet@2x.png");
     }
 
     .header__nav {
-      min-width: 720px;
       margin-bottom: 113px;
       padding-top: 19px;
     }
@@ -123,31 +112,26 @@
         height: 24px;
       }
     }
-
-    .button {
-      display: none;
-    }
   }
 }
 
 @media (max-width: $mobile-width) {
   .header {
-    background-image: url("../img/header-mobile@1x.jpg");
+    background-image: url("../img/circuit-board-mobile@1x.png"), url("../img/header-mobile@1x.png");
+    background-position: top right, center;
+    background-size: 320px auto, 100vw auto;
 
     @media (min-resolution: $retina-dpi), (min-resolution: $retina-dppx) {
-      background-image: url("../img/header-mobile@2x.jpg");
-      background-size: 100vw auto;
+      background-image: url("../img/circuit-board-mobile@2x.png"), url("../img/header-mobile@2x.png");
     }
 
     .header__nav {
-      width: 90%;
-      min-width: 288px;
       margin-bottom: 231.5px;
       padding-top: 16.5px;
     }
 
-    .header__link--mail {
-      margin-right: 23px;
+    li {
+      margin-left: 24px;
     }
   }
 }

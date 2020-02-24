@@ -69,11 +69,6 @@
     margin: 0;
     padding-top: 30px;
 
-    div {
-      display: none;
-      margin-bottom: 26px;
-    }
-
     h2 {
       width: auto;
       margin-right: auto;
@@ -83,5 +78,10 @@
     address {
       padding-top: 8px;
     }
+  }
+
+  .contacts__description {
+    display: none;
+    margin-bottom: 26px;
   }
 }

@@ -16,6 +16,25 @@
 
   &:hover,
   &:focus {
-    cursor: pointer;
+    @include hover;
+  }
+
+  &--header {
+    width: 180px;
+    margin-left: 51px;
+
+    &:hover,
+    &:focus {
+      background-color: $blue;
+      border-color: $blue;
+
+      @include hover(white);
+    }
+  }
+}
+
+@media (max-width: $tablet-width) {
+  .button--header {
+    display: none;
   }
 }

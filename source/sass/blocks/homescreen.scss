@@ -3,7 +3,9 @@
 
   width: 718px;
   margin-right: auto;
+  margin-bottom: 80px;
   margin-left: 0;
+  padding-bottom: 195px;
 
   h1 {
     margin: 0;
@@ -41,7 +43,6 @@
   .homescreen__button {
     display: inline-block;
     width: 407px;
-    margin-bottom: 276px;
     margin-left: 97px;
     padding-top: 17px;
     padding-bottom: 17px;
@@ -60,10 +61,9 @@
 
     &:hover,
     &:focus {
-      color: $blue;
-
       background-color: white;
-      cursor: pointer;
+
+      @include hover;
     }
 
     &--mobile {
@@ -73,8 +73,8 @@
 
   .homescreen__scroll {
     position: absolute;
-    bottom: 127px;
-    left: -35px;
+    bottom: 46px;
+    left: -39px;
 
     display: block;
     width: 93px;
@@ -89,9 +89,7 @@
 
     &:hover,
     &:focus {
-      color: $blue;
-
-      outline: none;
+      @include hover;
     }
   }
 }
@@ -99,7 +97,9 @@
 @media (max-width: $tablet-width) {
   .homescreen {
     width: 470px;
-    margin-left: 11.5%;
+    margin-bottom: 162px;
+    padding-bottom: 0;
+    padding-left: 64px;
 
     h1 {
       margin-bottom: 29px;
@@ -123,7 +123,6 @@
 
     .homescreen__button {
       width: 379px;
-      margin-bottom: 163px;
       margin-left: 50px;
     }
 
@@ -133,10 +132,11 @@
   }
 }
 
-@media (max-width: $tablet-width) {
+@media (max-width: $mobile-width) {
   .homescreen {
-    width: 290px;
-    margin: 0 auto;
+    width: 100%;
+    margin-bottom: 71px;
+    padding-left: 0;
 
     h1 {
       margin-bottom: 27px;
@@ -146,6 +146,7 @@
     }
 
     p {
+      max-width: 406px;
       margin-bottom: 42px;
 
       font-size: 16px;
@@ -153,8 +154,7 @@
 
     .homescreen__button {
       display: none;
-      width: 100%;
-      margin-bottom: 70px;
+      width: 290px;
       margin-left: 0;
 
       &--mobile {
