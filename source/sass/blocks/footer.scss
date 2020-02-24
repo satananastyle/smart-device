@@ -23,6 +23,15 @@
       background-repeat: no-repeat;
       background-position: center;
       border: none;
+
+      &:hover,
+      &:focus {
+        @include hover;
+      }
+    }
+
+    .no-js {
+      display: block;
     }
 
     .footer__button-close {

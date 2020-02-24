@@ -20,20 +20,25 @@
     }
   }
 
+  svg {
+    opacity: 0.2;
+  }
+
   a:not(.logo) {
     font-size: 0;
     line-height: 0;
-
-    opacity: 0.2;
 
     &:hover,
     &:focus {
       @include hover;
     }
 
-
     &:hover svg,
     &:focus svg {
+      opacity: 1;
+
+      transition: 0.5s;
+
       fill: $blue;
     }
   }

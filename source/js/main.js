@@ -2,7 +2,7 @@
 var hiddenList = document.querySelectorAll('.no-js');
 
 if (hiddenList) {
-  hiddenList.forEach(function (element) {
+  Array.prototype.forEach.call(hiddenList, function (element) {
     element.classList.remove('no-js');
   });
 }
@@ -11,7 +11,7 @@ var openButtons = document.querySelectorAll('.footer button');
 var descriptions = document.querySelectorAll('.footer button + div');
 
 if (openButtons && descriptions) {
-  openButtons.forEach(function (element) {
+  Array.prototype.forEach.call(openButtons, function (element) {
     element.addEventListener('click', openDescription);
   });
 }
@@ -24,7 +24,7 @@ function openDescription(evt) {
   var button = content.previousElementSibling;
 
   if (!content.classList.contains('footer__close')) {
-    descriptions.forEach(function (element) {
+    Array.prototype.forEach.call(descriptions, function (element) {
       element.classList.remove('footer__close');
       element.previousElementSibling.classList.remove('footer__button-close');
     });

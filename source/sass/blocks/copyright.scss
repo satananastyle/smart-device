@@ -81,13 +81,15 @@
 
     text-align: center;
 
-
     a {
-      width: 100%;
+      width: fit-content;
+      margin: 0 auto;
     }
 
     .copyright__confidence {
+      margin-right: auto;
       margin-bottom: 21px;
+      margin-left: auto;
     }
   }
 }
