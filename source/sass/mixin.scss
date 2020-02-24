@@ -14,8 +14,8 @@
   font-family: "Roboto Condensed", "Arial", sans-serif;
 }
 
-@mixin hover {
-  color: $blue;
+@mixin hover($color: $blue) {
+  color: $color;
 
   outline: none;
   cursor: pointer;

@@ -12,16 +12,38 @@
 
   .header__nav {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
+    flex-wrap: nowrap;
+    justify-content: space-between;
     align-items: center;
-    width: 73.5%;
+    width: 100%;
     min-width: 900px;
     margin: 0 auto;
     margin-bottom: 228px;
     padding-top: 31px;
 
     text-align: left;
+  }
+
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    min-width: 430px;
+    max-width: 55%;
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
+  }
+
+  li {
+    margin-left: 85px;
+  }
+
+  svg {
+    margin-right: 20px;
+
+    fill: $blue;
   }
 
   .header__link {
@@ -35,33 +57,27 @@
 
     @include mono(16px, 18px);
 
-    &--mail {
-      width: 135px;
-      margin-right: 6.3%;
-    }
-
-    &--tel {
-      width: 207px;
-      margin-right: 3.5%;
-    }
-
     &:hover,
     &:focus {
-      color: $blue;
+      @include hover;
+    }
 
-      outline: none;
-      cursor: pointer;
+    &:hover svg,
+    &:focus svg {
+      fill: white;
     }
   }
 
   .button {
     width: 180px;
+    margin-left: 51px;
 
     &:hover,
     &:focus {
       background-color: $blue;
       border-color: $blue;
-      outline: none;
+
+      @include hover(white);
     }
   }
 }
@@ -81,30 +97,30 @@
       padding-top: 19px;
     }
 
-    .header__link {
-      padding: 0;
+    ul {
+      min-width: 82.6px;
+    }
 
+    li {
+      margin-left: 34px;
+    }
+
+    svg {
+      margin: 0;
+    }
+
+    .header__link {
       font-size: 0;
       line-height: 0;
 
-      &--mail {
+      &--mail svg {
         width: 25.33px;
-        margin-right: 33px;
-
-        svg {
-          width: 25.33px;
-          height: 18.67px;
-        }
+        height: 18.67px;
       }
 
-      &--tel {
+      &--tel svg {
         width: 24px;
-        margin-right: 0;
-
-        svg {
-          width: 24px;
-          height: 24px;
-        }
+        height: 24px;
       }
     }
 
