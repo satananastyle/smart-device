@@ -1,55 +1,67 @@
 .contacts {
-  @include mono(15px, 25px);
+  width: 24%;
+
   color: #1b2d37;
+
+  @include mono(15px, 25px);
 
   h2 {
     width: 100%;
     margin: 0;
     margin-bottom: 25px;
 
-    @include roboto(400, 15px, 16px);
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-
     text-align: left;
-  }
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
 
-  div {
-    width: 100%;
+    @include roboto(400, 15px, 16px);
   }
 
   address {
     width: 100%;
+
     font-style: normal;
+
     opacity: 0.5;
+  }
+
+  ul {
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
   }
 
   a {
     display: block;
     width: 100%;
 
-    text-decoration: none;
     color: #1b2d37;
+    text-decoration: none;
+
     opacity: 0.5;
+
+    &:hover,
+    &:focus {
+      @include hover;
+    }
   }
 }
 
 @media (max-width: $tablet-width) {
   .contacts {
-    margin-right: 36px;
+    width: auto;
   }
 }
 
 @media (max-width: $mobile-width) {
   .contacts {
-    width: 100%;
-    padding: 0 15px;
-    padding-top: 30px;
-    margin: 0;
-
     display: flex;
-    justify-content: space-between;
     flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+    margin: 0;
+    padding-top: 30px;
 
     div {
       display: none;

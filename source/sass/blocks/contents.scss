@@ -1,17 +1,14 @@
-.nav {
+.contents {
   width: 39%;
 
   h2 {
     width: 100%;
-
     margin: 0;
     margin-bottom: 25px;
 
     text-align: left;
-
-    letter-spacing: 0.05em;
-
     text-transform: uppercase;
+    letter-spacing: 0.05em;
 
     @include roboto(400, 15px, 16px);
   }
@@ -19,7 +16,6 @@
   div {
     display: flex;
     flex-wrap: wrap;
-
     width: 100%;
   }
 
@@ -28,47 +24,46 @@
     padding: 0;
 
     list-style: none;
+    column-count: 2;
+    column-gap: 12%;
   }
 
   li {
-    margin-right: 73px;
+    width: 100%;
   }
 
   a {
+    color: #1b2d37;
     text-decoration: none;
 
     opacity: 0.5;
-    color: #1b2d37;
 
     @include mono(15px, 25px);
+
+    &:hover,
+    &:focus {
+      @include hover;
+    }
   }
 }
 
 @media (max-width: $tablet-width) {
-  .nav {
-    margin-left: 25px;
-
+  .contents {
     ul {
-      width: 100%;
-    }
-
-    li {
-      margin: 0;
+      column-count: 1;
     }
   }
 }
 
 @media (max-width: $mobile-width) {
-  .nav {
+  .contents {
     position: relative;
 
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-
     width: 100%;
     margin: 0;
-    padding: 0 15px;
     padding-top: 30px;
 
     h2 {
@@ -77,22 +72,23 @@
 
     div {
       display: none;
+    }
 
+    ul {
       margin-bottom: 26px;
     }
 
     &::after {
+      content: "";
       position: absolute;
       bottom: 0;
-      left: 0;
+      left: -15px;
 
-      width: 100%;
+      width: 100vw;
       height: 1px;
 
-      content: "";
-
-      opacity: 0.5;
       background-color: #626962;
+      opacity: 0.5;
     }
   }
 }

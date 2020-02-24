@@ -1,25 +1,10 @@
 .footer {
   width: 100%;
-
-  .footer__wrapper {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-
-    width: 73.7%;
-    margin: 0 auto;
-  }
+  margin-top: auto;
+  padding-top: 65px;
 
   button {
     display: none;
-  }
-}
-
-@media (max-width: $tablet-width) {
-  .footer {
-    .footer__wrapper {
-      width: 100%;
-    }
   }
 }
 
@@ -27,21 +12,24 @@
   .footer {
     button {
       display: block;
-
       width: 16px;
       height: 16px;
 
-      border: none;
-      background-color: transparent;
-      background-image: url("../img/open-button.svg");
-      background-repeat: no-repeat;
-      background-position: center;
-
       font-size: 0;
       line-height: 0;
+
+      background-color: transparent;
+      background-image: url("../img/svg/open-button.svg");
+      background-repeat: no-repeat;
+      background-position: center;
+      border: none;
     }
 
-    .no-js {
+    .footer__button-close {
+      background-image: url("../img/svg/close-button.svg");
+    }
+
+    .footer__close {
       display: block;
     }
   }

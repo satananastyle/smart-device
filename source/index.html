@@ -11,9 +11,10 @@
   <div class="sprite">
     <include src="build/img/sprite_auto.svg"></include>
   </div>
+  <div class="wrapper">
   <header class="header">
     <nav class="header__nav">
-      <a class="logo logo--header" href="#" aria-label="Логотип">
+      <a class="logo logo--header" aria-label="Логотип">
         <img src="img/svg/logo.svg" width="202" height="52" alt="Логотип магазина">
       </a>
       <a class="header__link header__link--mail" href="mailto:info@sd.ru" aria-label="Написать нам">
@@ -38,8 +39,9 @@
       <a class="homescreen__scroll" href="#">Cкролл вниз</a>
     </div>
   </header>
-  <!-- <footer class="footer">
-    <div class="footer__wrapper">
+
+  <footer class="footer">
+    <div class="container">
       <div class="social">
         <a class="logo logo--footer" href="#">
           <img src="img/svg/logo-footer.svg" width="216" height="52" alt="Логотип магазина">
@@ -72,9 +74,9 @@
           </li>
         </ul>
       </div>
-      <nav class="nav">
+      <nav class="footer__nav contents">
         <h2>разделы сайта</h2>
-        <button type="button">Развернуть</button>
+        <button class="footer__button footer__button--open"type="button">Развернуть</button>
         <div class="no-js">
           <ul>
             <li>
@@ -89,8 +91,6 @@
             <li>
               <a href="#">Монтаж печатных плат</a>
             </li>
-          </ul>
-          <ul>
             <li>
               <a href="#">Комплектующие</a>
             </li>
@@ -101,30 +101,38 @@
               <a href="#">Контакты</a>
             </li>
           </ul>
-        </div>
       </nav>
       <div class="contacts">
         <h2>наш офис</h2>
-        <button type="button">Развернуть</button>
+        <button class="footer__button footer__button--open" type="button">Развернуть</button>
         <div class="no-js">
           <address>г. Мытищи, Олимпийский проспект, д.10</address>
-          <a href="tel:84955894050">+7 (495) 589-40-50</a>
-          <a href="tel:89250038767">+7 (925) 003-87-67</a>
-          <a href="tel:892692608079">+7 (926) 926-080-79</a>
+          <ul>
+            <li>
+              <a href="tel:84955894050" area-label="Позвонить нам">+7 (495) 589-40-50</a>
+            </li>
+            <li>
+              <a href="tel:89250038767" area-label="Позвонить нам">+7 (925) 003-87-67</a>
+            </li>
+            <li>
+              <a href="tel:892692608079" area-label="Позвонить нам">+7 (926) 926-080-79</a>
+            </li>
+          </ul>
         </div>
       </div>
     </div>
     <div class="copyright">
-      <div class="copyright__wrapper">
-        <div class="law">
+      <div class="container">
+        <div class="copyright__law">
           <p>все права защищены</p>
           <p>1999-2018 SD Service Devices</p>
         </div>
-        <a href="#">условия конфиденциальности</a>
-        <p>developed by wow studio</p>
+        <a class="copyright__confidence" href="#">условия конфиденциальности</a>
+        <a href="#">developed by wow studio</a>
       </div>
     </div>
-  </footer> -->
+  </footer>
+</div>
 
   <script src="js/main.js"></script>
 </body>

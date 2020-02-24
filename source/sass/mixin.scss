@@ -1,15 +1,25 @@
 @mixin mono($size,$line) {
-  font-family: "PT Mono", "Courier New", monospace;
   font-style: normal;
   font-weight: 400;
   font-size: $size;
   line-height: $line;
+  font-family: "PT Mono", "Courier New", monospace;
 }
 
 @mixin roboto($weight,$size,$line) {
-  font-family: "Roboto Condensed", "Arial", sans-serif;
   font-style: normal;
   font-weight: $weight;
   font-size: $size;
   line-height: $line;
+  font-family: "Roboto Condensed", "Arial", sans-serif;
+}
+
+@mixin hover {
+  color: $blue;
+
+  outline: none;
+  cursor: pointer;
+  opacity: 1;
+
+  transition: 0.5s ease-in-out;
 }

@@ -1,16 +1,20 @@
 'use strict';
 var hiddenList = document.querySelectorAll('.no-js');
 
-hiddenList.forEach(function (element) {
-  element.classList.remove('no-js');
-});
+if (hiddenList) {
+  hiddenList.forEach(function (element) {
+    element.classList.remove('no-js');
+  });
+}
 
 var openButtons = document.querySelectorAll('.footer button');
 var descriptions = document.querySelectorAll('.footer button + div');
 
-openButtons.forEach(function (element) {
-  element.addEventListener('click', openDescription);
-});
+if (openButtons && descriptions) {
+  openButtons.forEach(function (element) {
+    element.addEventListener('click', openDescription);
+  });
+}
 
 function openDescription(evt) {
   evt.preventDefault();
@@ -18,17 +22,16 @@ function openDescription(evt) {
 
   var content = event.target.nextElementSibling;
   var button = content.previousElementSibling;
-  var display = window.getComputedStyle(content).display;
 
-  if (display === 'none' || content.style.display === 'none') {
+  if (!content.classList.contains('footer__close')) {
     descriptions.forEach(function (element) {
-      element.style.display = 'none';
-      element.previousElementSibling.style = '';
+      element.classList.remove('footer__close');
+      element.previousElementSibling.classList.remove('footer__button-close');
     });
-    content.style.display = 'block';
-    button.style = 'background-image: url(img/svg/close-button.svg)';
+    content.classList.add('footer__close');
+    button.classList.add('footer__button-close');
   } else {
-    content.style.display = 'none';
-    button.style = '';
+    content.classList.remove('footer__close');
+    button.classList.remove('footer__button-close');
   }
 }
