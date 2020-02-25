@@ -1,0 +1,19 @@
+.general {
+  padding-top: 112px;
+
+  background-image: url("../img/svg/triangles.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+@media (max-width: $tablet-width) {
+  .general {
+    padding-top: 56px;
+  }
+}
+
+@media (max-width: $mobile-width) {
+  .general {
+    padding-top: 36px;
+  }
+}
