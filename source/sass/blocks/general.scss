@@ -1,19 +1,30 @@
 .general {
   padding-top: 112px;
+  padding-bottom: 95px;
 
-  background-image: url("../img/svg/triangles.svg");
+  background-image: url("../img/svg/triangles-desktop.svg");
   background-repeat: no-repeat;
+  background-position: center top -28px;
   background-size: cover;
+
+  @include mono(16px, 22px);
 }
 
 @media (max-width: $tablet-width) {
   .general {
     padding-top: 56px;
+
+    background-image: url("../img/svg/triangle-tablet.svg");
+    background-position: top 92px right;
+    background-size: 559px auto;
   }
 }
 
 @media (max-width: $mobile-width) {
   .general {
     padding-top: 36px;
+
+    background-position: bottom 327px right -120px;
+    background-size: 561px;
   }
 }

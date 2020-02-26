@@ -1,4 +1,6 @@
 .advantages {
+  margin-bottom: 76px;
+
   ul {
     display: flex;
     flex-wrap: wrap;
@@ -18,8 +20,6 @@
     background-color: white;
     border: 1px solid rgba(0, 0, 0, 0.2);
     border-left: 3px solid $blue;
-
-    @include mono(16px, 22px);
 
     &:hover,
     &:focus {
@@ -63,6 +63,8 @@
 
 @media (max-width: $tablet-width) {
   .advantages {
+    margin-bottom: 23px;
+
     h3 {
       margin: 0;
       margin-bottom: 9px;
@@ -80,13 +82,11 @@
 
 @media (max-width: $mobile-width) {
   .advantages {
+    margin-bottom: 41px;
+
     li {
       width: 100%;
       margin-bottom: 20px;
-    }
-
-    .advantages__delivery {
-      padding-right: 12px;
     }
 
     h3 {

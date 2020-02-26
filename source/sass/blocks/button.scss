@@ -31,10 +31,42 @@
       @include hover(white);
     }
   }
+
+  &--general {
+    width: 180px;
+    margin-top: 19px;
+    margin-bottom: 25px;
+
+    color: $blue;
+
+    border-color: $blue;
+
+    &:hover,
+    &:focus {
+      background-color: $blue;
+      border-color: $blue;
+
+      @include hover(white);
+    }
+  }
 }
 
 @media (max-width: $tablet-width) {
-  .button--header {
-    display: none;
+  .button {
+    &--header {
+      display: none;
+    }
+
+    &--general {
+      padding: 14px;
+    }
+  }
+}
+
+@media (max-width: $mobile-width) {
+  .button {
+    &--general {
+      margin-top: -12px;
+    }
   }
 }
