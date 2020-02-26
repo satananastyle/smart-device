@@ -1,0 +1,193 @@
+.product {
+  padding-top: 89px;
+  padding-bottom: 126px;
+
+  color: white;
+
+  background-color: $black;
+
+  h2 {
+    margin: 0;
+    margin-bottom: 51px;
+
+    @include roboto(400, 36px, 51px);
+  }
+
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
+  }
+
+  li {
+    width: 31.5%;
+  }
+
+  .product__item {
+    position: relative;
+
+    display: block;
+    min-height: 620px;
+    padding-top: 51px;
+    padding-left: 43.7px;
+
+    color: white;
+    text-decoration: none;
+
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: cover;
+
+    @include roboto(400, 20px, 30px);
+
+    &--production {
+      background-image: url("../img/production-desktop@1x.png");
+
+      @media (min-resolution: $retina-dpi), (min-resolution: $retina-dppx) {
+        background-image: url("../img/production-desktop@2x.png");
+      }
+    }
+
+    &--montage {
+      background-image: url("../img/montage-desktop@1x.png");
+
+      @media (min-resolution: $retina-dpi), (min-resolution: $retina-dppx) {
+        background-image: url("../img/montage-desktop@2x.png");
+      }
+    }
+
+    &--lighting {
+      background-image: url("../img/lighting-desktop@1x.png");
+
+      @media (min-resolution: $retina-dpi), (min-resolution: $retina-dppx) {
+        background-image: url("../img/lighting-desktop@2x.png");
+      }
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      right: 0;
+      bottom: 0;
+
+      width: 63px;
+      height: 63px;
+
+      background-color: $blue;
+      background-image: url("../img/svg/arrow.svg");
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+
+    &:hover,
+    &:focus {
+      background-color: rgba(0, 0, 0, 0.5);
+
+      @include hover(white);
+    }
+  }
+
+  span {
+    display: inline-block;
+    width: 151px;
+
+    vertical-align: middle;
+  }
+}
+
+@media (max-width: $tablet-width) {
+  .product {
+    padding-top: 49px;
+    padding-bottom: 31px;
+
+    li {
+      width: 100%;
+      margin-bottom: 46px;
+    }
+
+    h2 {
+      font-size: 32px;
+      line-height: 140.62%;
+    }
+
+    .product__item {
+      min-height: 256px;
+      padding-top: 39px;
+
+      &--production {
+        background-image: url("../img/production-tablet@1x.png");
+
+        @media (min-resolution: $retina-dpi), (min-resolution: $retina-dppx) {
+          background-image: url("../img/production-tablet@2x.png");
+        }
+      }
+
+      &--montage {
+        background-image: url("../img/montage-tablet@1x.png");
+
+        @media (min-resolution: $retina-dpi), (min-resolution: $retina-dppx) {
+          background-image: url("../img/montage-tablet@2x.png");
+        }
+      }
+
+      &--lighting {
+        background-image: url("../img/lighting-tablet@1x.png");
+
+        @media (min-resolution: $retina-dpi), (min-resolution: $retina-dppx) {
+          background-image: url("../img/lighting-tablet@2x.png");
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: $mobile-width) {
+  .product {
+    padding-top: 51px;
+    padding-bottom: 34px;
+
+    h2 {
+      margin-bottom: 42px;
+      padding-left: 10px;
+
+      font-size: 28px;
+    }
+
+    li {
+      margin-bottom: 30px;
+    }
+
+    .product__item {
+      padding-top: 20.5px;
+      padding-left: 34.7px;
+
+      &--production {
+        background-image: url("../img/production-mobile@1x.png");
+
+        @media (min-resolution: $retina-dpi), (min-resolution: $retina-dppx) {
+          background-image: url("../img/production-mobile@2x.png");
+        }
+      }
+
+      &--montage {
+        background-image: url("../img/montage-mobile@1x.png");
+
+        @media (min-resolution: $retina-dpi), (min-resolution: $retina-dppx) {
+          background-image: url("../img/montage-mobile@2x.png");
+        }
+      }
+
+      &--lighting {
+        background-image: url("../img/lighting-mobile@1x.png");
+
+        @media (min-resolution: $retina-dpi), (min-resolution: $retina-dppx) {
+          background-image: url("../img/lighting-mobile@2x.png");
+        }
+      }
+    }
+  }
+}

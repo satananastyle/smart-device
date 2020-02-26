@@ -1,5 +1,6 @@
 .advantages {
   margin-bottom: 76px;
+  padding-top: 112px;
 
   ul {
     display: flex;
@@ -64,6 +65,7 @@
 @media (max-width: $tablet-width) {
   .advantages {
     margin-bottom: 23px;
+    padding-top: 56px;
 
     h3 {
       margin: 0;
@@ -83,6 +85,7 @@
 @media (max-width: $mobile-width) {
   .advantages {
     margin-bottom: 41px;
+    padding-top: 36px;
 
     li {
       width: 100%;

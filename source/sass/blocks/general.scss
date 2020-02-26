@@ -1,6 +1,5 @@
 .general {
-  padding-top: 112px;
-  padding-bottom: 95px;
+  padding-bottom: 88px;
 
   background-image: url("../img/svg/triangles-desktop.svg");
   background-repeat: no-repeat;
@@ -12,7 +11,7 @@
 
 @media (max-width: $tablet-width) {
   .general {
-    padding-top: 56px;
+    padding-bottom: 58px;
 
     background-image: url("../img/svg/triangle-tablet.svg");
     background-position: top 92px right;
@@ -22,7 +21,7 @@
 
 @media (max-width: $mobile-width) {
   .general {
-    padding-top: 36px;
+    padding-bottom: 38px;
 
     background-position: bottom 327px right -120px;
     background-size: 561px;
