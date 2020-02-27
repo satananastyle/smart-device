@@ -51,6 +51,7 @@
   },
   "dependencies": {
     "del": "^4.1.1",
-    "imask": "^6.0.3"
+    "imask": "^6.0.3",
+    "moveto": "^1.8.2"
   }
 }

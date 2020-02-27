@@ -63,11 +63,10 @@ function getNameError(name) {
   return '';
 }
 
-function getResultValidation(evt) {
+function getResultValidation(evt, currentForm) {
   evt.preventDefault();
   evt.stopPropagation();
 
-  var currentForm = evt.currentTarget.closest('form');
   var currentInput = currentForm.querySelector('input[type="tel"]');
   var currentName = currentForm.querySelector('input[type="text"]');
   var currentCheckbox = currentForm.querySelector('input[type="checkbox"]');
@@ -79,26 +78,26 @@ function getResultValidation(evt) {
   if (currentName) {
     var errorName = getNameError(currentName.value);
     if (errorName !== '') {
-      currentName.style = 'border: 1px solid red';
+      currentName.style.border = '1px solid red';
       currentName.setCustomValidity(errorName);
     } else {
-      currentName.style = '';
+      currentName.removeAttribute('style');
     }
   }
 
   if (currentCheckbox) {
     if (!currentCheckbox.checked) {
-      visuallyCheckbox.style = 'border: 1px solid red';
+      visuallyCheckbox.style.border = '1px solid red';
     } else {
-      visuallyCheckbox.style = '';
+      visuallyCheckbox.removeAttribute('style');
     }
   }
 
   if (errorPhone) {
-    currentInput.style = 'border: 1px solid red';
+    currentInput.style.border = '1px solid red';
     currentInput.setCustomValidity(errorPhone);
   } else {
-    currentInput.style = '';
+    currentInput.removeAttribute('style');
   }
 
   if (errorPhone || errorName || !currentCheckbox.checked) {
@@ -116,20 +115,22 @@ var checkboxes = document.querySelectorAll('input[type = "checkbox"] + label spa
 
 
 if (questionButton) {
-  questionButton.addEventListener('click', getResultValidation);
+  questionButton.addEventListener('click', function (evt) {
+    getResultValidation(evt, feedbackForm);
+  });
 }
 
-if (inputs && checkboxes) {
-  document.addEventListener('click', clearForm);
-}
-
+// if (inputs && checkboxes) {
+//   document.addEventListener('click', clearForm);
+// }
+//
 function clearForm() {
   Array.prototype.forEach.call(inputs, function (element) {
-    element.style = '';
+    element.removeAttribute('style');
   });
 
   Array.prototype.forEach.call(checkboxes, function (element) {
-    element.style = '';
+    element.removeAttribute('style');
   });
 }
 
@@ -144,6 +145,7 @@ var modalCallMe = document.querySelector('.modal');
 var closeCallMe = modalCallMe.querySelector('button[type="button"]');
 var orderButton = modalCallMe.querySelector('button[type="submit"]');
 var form = modalCallMe.querySelector('form');
+var feedbackForm = document.querySelector('.feedback form');
 
 if (callMeButton) {
   callMeButton.addEventListener('click', onCallMeButton);
@@ -151,6 +153,7 @@ if (callMeButton) {
 
 function closeModal() {
   form.reset();
+  clearForm();
 
   if (!modalCallMe.classList.contains('vissualy-hidden')) {
     modalCallMe.classList.add('visually-hidden');
@@ -166,13 +169,10 @@ function closeModal() {
 
   overlay.removeEventListener('click', onCloseButton);
   document.removeEventListener('keydown', onModalEscPress);
-
-  clearForm();
 }
 
 function openModal() {
   overlay.classList.remove('visually-hidden');
-  body.style = 'position: fixed; overflow-y: scroll';
 
   overlay.addEventListener('click', onCloseButton);
   document.addEventListener('keydown', onModalEscPress);
@@ -200,7 +200,7 @@ function onOrderButton(evt) {
   evt.preventDefault();
   evt.stopPropagation();
 
-  if (getResultValidation(evt) !== '') {
+  if (getResultValidation(evt, form) !== '') {
     return;
   }
 
@@ -212,3 +212,25 @@ function onModalEscPress(evt) {
     closeModal();
   }
 }
+
+// var advantagesButton = document.querySelector('.homescreen__scroll');
+// var feedbackButtons = document.querySelectorAll('.homescreen__button');
+// var advantagesBlock = document.querySelector('#advantages');
+// var feedbackBlock = document.querySelector('#feedback');
+// var move = new window.MoveTo({tolerance: 0, duration: 800, easing: 'easeOutQuart', container: body});
+//
+// if (advantagesButton && advantagesBlock) {
+//   advantagesButton.addEventListener('click', function (evt) {
+//     evt.preventDefault();
+//     move.move(advantagesBlock);
+//   });
+// }
+//
+// if (feedbackButtons && feedbackBlock) {
+//   Array.prototype.forEach.call(feedbackButtons, function (element) {
+//     element.addEventListener('click', function (evt) {
+//       evt.preventDefault();
+//       move.move(feedbackBlock);
+//     });
+//   });
+// }
