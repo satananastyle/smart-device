@@ -1,4 +1,6 @@
 'use strict';
+
+// аккордеон футер
 var hiddenList = document.querySelectorAll('.no-js');
 
 if (hiddenList) {
@@ -36,11 +38,10 @@ function openDescription(evt) {
   }
 }
 
+// валидация
+
 window.iMaskJS(document.querySelector('.feedback input[type="tel"]'), {mask: '+{7}(000)000-00-00'});
-
-var questionButton = document.querySelector('.feedback button');
-
-questionButton.addEventListener('click', getResultValidation);
+window.iMaskJS(document.querySelector('.modal input[type="tel"]'), {mask: '+{7}(000)000-00-00'});
 
 var MAX_LENGTH = 16;
 
@@ -70,6 +71,7 @@ function getResultValidation(evt) {
   var currentInput = currentForm.querySelector('input[type="tel"]');
   var currentName = currentForm.querySelector('input[type="text"]');
   var currentCheckbox = currentForm.querySelector('input[type="checkbox"]');
+  var visuallyCheckbox = currentForm.querySelector('input[type="checkbox"] + label span');
 
 
   var errorPhone = getPhoneError(currentInput.value);
@@ -86,9 +88,9 @@ function getResultValidation(evt) {
 
   if (currentCheckbox) {
     if (!currentCheckbox.checked) {
-      currentCheckbox.nextElementSibling.style = 'border: 1px solid red';
+      visuallyCheckbox.style = 'border: 1px solid red';
     } else {
-      currentCheckbox.nextElementSibling.style = '';
+      visuallyCheckbox.style = '';
     }
   }
 
@@ -100,21 +102,28 @@ function getResultValidation(evt) {
   }
 
   if (errorPhone || errorName || !currentCheckbox.checked) {
-    return;
+    return 'Не все поля заполненны корректно';
   }
   currentForm.reset();
+  return '';
 }
 
+// модальное окно
+
+var questionButton = document.querySelector('.feedback button');
 var inputs = document.querySelectorAll('input');
-var checkboxes = document.querySelectorAll('input[type = "checkbox"] + span');
+var checkboxes = document.querySelectorAll('input[type = "checkbox"] + label span');
+
+
+if (questionButton) {
+  questionButton.addEventListener('click', getResultValidation);
+}
 
 if (inputs && checkboxes) {
   document.addEventListener('click', clearForm);
 }
 
-function clearForm(evt) {
-  evt.stopPropagation();
-
+function clearForm() {
   Array.prototype.forEach.call(inputs, function (element) {
     element.style = '';
   });
@@ -122,4 +131,84 @@ function clearForm(evt) {
   Array.prototype.forEach.call(checkboxes, function (element) {
     element.style = '';
   });
+}
+
+var ESC_CODE = 27;
+
+var body = document.querySelector('body');
+
+var overlay = document.querySelector('.overlay');
+
+var callMeButton = document.querySelector('.header__nav .button');
+var modalCallMe = document.querySelector('.modal');
+var closeCallMe = modalCallMe.querySelector('button[type="button"]');
+var orderButton = modalCallMe.querySelector('button[type="submit"]');
+var form = modalCallMe.querySelector('form');
+
+if (callMeButton) {
+  callMeButton.addEventListener('click', onCallMeButton);
+}
+
+function closeModal() {
+  form.reset();
+
+  if (!modalCallMe.classList.contains('vissualy-hidden')) {
+    modalCallMe.classList.add('visually-hidden');
+    closeCallMe.removeEventListener('click', onCloseButton);
+    orderButton.removeEventListener('click', onOrderButton);
+  }
+
+  closeCallMe.removeEventListener('click', onCloseButton);
+  orderButton.removeEventListener('click', onOrderButton);
+
+  overlay.classList.add('visually-hidden');
+  body.style = 'overflow: auto';
+
+  overlay.removeEventListener('click', onCloseButton);
+  document.removeEventListener('keydown', onModalEscPress);
+
+  clearForm();
+}
+
+function openModal() {
+  overlay.classList.remove('visually-hidden');
+  body.style = 'position: fixed; overflow-y: scroll';
+
+  overlay.addEventListener('click', onCloseButton);
+  document.addEventListener('keydown', onModalEscPress);
+}
+
+function onCallMeButton(evt) {
+  evt.preventDefault();
+  evt.stopPropagation();
+
+  modalCallMe.classList.remove('visually-hidden');
+  closeCallMe.addEventListener('click', onCloseButton);
+  orderButton.addEventListener('click', onOrderButton);
+
+  openModal();
+}
+
+function onCloseButton(evt) {
+  evt.preventDefault();
+  evt.stopPropagation();
+
+  closeModal();
+}
+
+function onOrderButton(evt) {
+  evt.preventDefault();
+  evt.stopPropagation();
+
+  if (getResultValidation(evt) !== '') {
+    return;
+  }
+
+  closeModal();
+}
+
+function onModalEscPress(evt) {
+  if (evt.keyCode === ESC_CODE) {
+    closeModal();
+  }
 }

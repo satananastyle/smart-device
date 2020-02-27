@@ -62,6 +62,19 @@
       @include hover($blue);
     }
   }
+
+  &--modal {
+    width: 100%;
+    margin-bottom: 35px;
+
+    &:hover,
+    &:focus {
+      background-color: white;
+      border-color: white;
+
+      @include hover($blue);
+    }
+  }
 }
 
 @media (max-width: $tablet-width) {
