@@ -1,6 +1,6 @@
 .product {
   padding-top: 89px;
-  padding-bottom: 126px;
+  padding-bottom: 80px;
 
   color: white;
 
@@ -16,7 +16,7 @@
   ul {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: flex-start;
     margin: 0;
     padding: 0;
 
@@ -25,6 +25,12 @@
 
   li {
     width: 31.5%;
+    margin-right: 31px;
+    margin-bottom: 46px;
+  }
+
+  ul li:nth-child(3) {
+    margin-right: 0;
   }
 
   .product__item {
@@ -38,6 +44,7 @@
     color: white;
     text-decoration: none;
 
+    background-color: $black;
     background-repeat: no-repeat;
     background-position: center top;
     background-size: cover;
@@ -89,6 +96,14 @@
 
       @include hover(white);
     }
+
+    &:hover::after,
+    &:focus::after {
+      background-color: $black;
+      opacity: 0.8;
+
+      transition: 0.5s;
+    }
   }
 
   span {
@@ -106,7 +121,6 @@
 
     li {
       width: 100%;
-      margin-bottom: 46px;
     }
 
     h2 {

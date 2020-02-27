@@ -1,0 +1,270 @@
+.feedback {
+  padding-top: 93px;
+  padding-bottom: 114px;
+
+  color: white;
+
+  background-color: $blue;
+  background-image: url("../img/airplane@1x.png");
+  background-repeat: no-repeat;
+  background-position: right bottom 37%;
+  background-size: 91%;
+
+  @include mono(16px, 22px);
+
+  @media (min-resolution: $retina-dpi), (min-resolution: $retina-dppx) {
+    background-image: url("../img/airplane@2x.png");
+  }
+
+  form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 570px;
+    margin-left: auto;
+  }
+
+  h2 {
+    margin: 0;
+    margin-bottom: 9px;
+
+    @include roboto(400, 36px, 51px);
+  }
+
+  p {
+    width: 100%;
+    margin: 0;
+    margin-bottom: 52px;
+  }
+
+  label {
+    position: relative;
+
+    width: 47%;
+    margin-bottom: 41px;
+  }
+
+  input[type="tel"],
+  input[type="text"] {
+    width: 100%;
+    padding: 15px 16px 16px;
+
+    background-color: rgba(255, 255, 255, 0.1);
+    border: none;
+
+    &:hover,
+    &:focus {
+      background-color: rgba(255, 255, 255, 0.2);
+
+      @include hover(white);
+    }
+
+    &:hover::-webkit-input-placeholder,
+    &:focus::-webkit-input-placeholder {
+      color: transparent;
+
+      transition: 0.5s;
+    }
+
+    &:hover::-moz-placeholder,
+    &:focus::-moz-placeholder {
+      color: transparent;
+
+      transition: 0.5s;
+    }
+
+    &:hover:-ms-input-placeholder,
+    &:focus:-ms-input-placeholder {
+      color: transparent;
+
+      transition: 0.5s;
+    }
+  }
+
+  ::-webkit-input-placeholder {
+    color: white;
+  }
+
+
+  ::-moz-placeholder {
+    color: white;
+  }
+
+  :-ms-input-placeholder {
+    color: white;
+  }
+
+  textarea {
+    width: 100%;
+    margin-bottom: 46px;
+    padding: 14px 16px;
+
+    background-color: rgba(255, 255, 255, 0.1);
+    border: none;
+
+    &:hover,
+    &:focus {
+      background-color: rgba(255, 255, 255, 0.2);
+
+      @include hover(white);
+    }
+
+    &:hover::-webkit-input-placeholder,
+    &:focus::-webkit-input-placeholder {
+      color: transparent;
+
+      transition: 0.5s;
+    }
+
+    &:hover::-moz-placeholder,
+    &:focus::-moz-placeholder {
+      color: transparent;
+
+      transition: 0.5s;
+    }
+
+    &:hover:-ms-input-placeholder,
+    &:focus:-ms-input-placeholder {
+      color: transparent;
+
+      transition: 0.5s;
+    }
+  }
+
+  input[type="checkbox"] {
+    position: absolute;
+
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+
+    clip: rect(0, 0, 0, 0);
+
+    &:hover + span,
+    &:focus + span {
+      background-color: rgba(255, 255, 255, 0.2);
+
+      @include hover(white);
+    }
+  }
+
+  input[type="checkbox"] + span {
+    position: absolute;
+    top: 1px;
+    left: 0;
+
+    width: 16px;
+    height: 16px;
+
+    border: 1px solid white;
+  }
+
+  input[type="checkbox"]:checked + span {
+    background-image: url("../img/svg/checkmark.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  .feedback__ok {
+    margin-bottom: 0;
+    padding-left: 38px;
+
+    font-size: 14px;
+    line-height: 16px;
+
+    &:hover span,
+    &:focus span {
+      background-color: rgba(255, 255, 255, 0.2);
+
+      @include hover(white);
+    }
+  }
+}
+
+@media (max-width: $tablet-width) {
+  .feedback {
+    padding-top: 80px;
+    padding-bottom: 103px;
+
+    background-image: none;
+
+    form {
+      min-width: 100%;
+      margin: 0 auto;
+      padding: 0 62px 0 67px;
+    }
+
+    h2 {
+      margin-bottom: 17px;
+
+      font-size: 32px;
+      line-height: 140.62%;
+    }
+
+    label {
+      width: 47.5%;
+    }
+
+    input[type="tel"],
+    input[type="text"] {
+      padding: 15px 18px 20px;
+    }
+
+    textarea {
+      min-height: 160px;
+      margin-bottom: 45px;
+    }
+
+    input[type=checkbox] + span {
+      position: absolute;
+      top: 2px;
+      left: 9px;
+    }
+
+    .feedback__ok {
+      padding-left: 43px;
+    }
+  }
+}
+
+@media (max-width: $mobile-width) {
+  .feedback {
+    padding-top: 30px;
+    padding-bottom: 43px;
+
+    h2 {
+      margin-bottom: 14px;
+
+      font-size: 28px;
+    }
+
+    p {
+      margin-bottom: 25px;
+    }
+
+    form {
+      padding: 0;
+    }
+
+    label {
+      width: 100%;
+      margin-bottom: 30px;
+    }
+
+    textarea {
+      min-height: auto;
+      max-height: 103px;
+      margin-bottom: 29px;
+    }
+
+    .feedback__ok {
+      padding-left: 34px;
+    }
+
+    input[type=checkbox] + span {
+      left: 0;
+    }
+  }
+}

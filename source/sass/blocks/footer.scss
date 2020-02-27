@@ -11,8 +11,16 @@
   }
 }
 
+@media (max-width: $tablet-width) {
+  .footer {
+    padding-top: 18px;
+  }
+}
+
 @media (max-width: $mobile-width) {
   .footer {
+    padding-top: 46px;
+
     button {
       display: block;
       width: 16px;

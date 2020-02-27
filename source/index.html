@@ -41,8 +41,8 @@
         <div class="header__intro homescreen">
           <h1>печатные платы</h1>
           <p>производство и монтаж, поставка комплектующих, блоков и модулей</p>
-          <a class="homescreen__button " href="#">получить бесплатную консультацию</a>
-          <a class="homescreen__button homescreen__button--mobile" href="#">бесплатная консультация</a>
+          <a class="homescreen__button " href="#feedback">получить бесплатную консультацию</a>
+          <a class="homescreen__button homescreen__button--mobile" href="#feedback">бесплатная консультация</a>
           <a class="homescreen__scroll" href="#advantages">Cкролл вниз</a>
         </div>
       </div>
@@ -131,6 +131,28 @@
             </li>
           </ul>
         </div>
+      </section>
+      <section class="feedback" id="feedback">
+        <div class="container-main">
+          <form>
+            <h2>Остались вопросы? Задайте их нам!</h2>
+            <p>Мы проконсультируем Вас бесплатно</p>
+            <label>
+              <input type="text" placeholder="Имя" name="user" required>
+              <span class="visually-hidden">Имя</span>
+            </label>
+            <label>
+              <input type="tel" placeholder="Телефон" pattern="7[0-9]{10}" name="phone" maxlength="10" required>
+              <span class="visually-hidden">Телефон</span>
+            </label>
+            <textarea rows="7" placeholder="Ваш вопрос"></textarea>
+            <button class="button button--form" type="submit">Задать вопрос</button>
+            <label class="feedback__ok">
+              <input type="checkbox" checked>
+              <span></span>
+              Я согласен на обработку персональных данных
+            </form>
+          </div>
       </section>
     </main>
     <footer class="footer container">

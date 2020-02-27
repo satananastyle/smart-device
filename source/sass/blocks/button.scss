@@ -49,6 +49,19 @@
       @include hover(white);
     }
   }
+
+  &--form {
+    width: 270px;
+
+
+    &:hover,
+    &:focus {
+      background-color: white;
+      border-color: white;
+
+      @include hover($blue);
+    }
+  }
 }
 
 @media (max-width: $tablet-width) {
@@ -60,6 +73,12 @@
     &--general {
       padding: 14px;
     }
+
+    &--form {
+      width: 280px;
+      padding-top: 14px;
+      padding-bottom: 15px;
+    }
   }
 }
 
@@ -67,6 +86,11 @@
   .button {
     &--general {
       margin-top: -12px;
+    }
+
+    &--form {
+      width: 290px;
+      margin-bottom: 30px;
     }
   }
 }
