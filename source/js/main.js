@@ -110,7 +110,7 @@ function getResultValidation(evt, currentForm) {
   }
 
   localStorage.setItem('user', currentName.value);
-  localStorage.setItem('phone', currentInput.value);
+  // localStorage.setItem('phone', currentInput.value);
   localStorage.setItem('letter', currentLetter.value);
 
   currentForm.reset();
@@ -122,7 +122,7 @@ function getResultValidation(evt, currentForm) {
 var questionButton = document.querySelector('.feedback button');
 var inputs = document.querySelectorAll('input');
 var checkboxes = document.querySelectorAll('input[type = "checkbox"] + label span');
-var letters =  document.querySelectorAll('textarea');
+var letters = document.querySelectorAll('textarea');
 
 
 if (questionButton) {
@@ -141,6 +141,7 @@ var callMeButton = document.querySelector('.header__nav .button');
 var modalCallMe = document.querySelector('.modal');
 var modalName = modalCallMe.querySelector('input[name="user"]');
 var modalPhone = modalCallMe.querySelector('input[type="tel"]');
+var modalLetter = modalCallMe.querySelector('textarea');
 var closeCallMe = modalCallMe.querySelector('button[type="button"]');
 var orderButton = modalCallMe.querySelector('button[type="submit"]');
 var form = modalCallMe.querySelector('form');
@@ -153,17 +154,20 @@ if (callMeButton) {
 function openModal() {
   modalCallMe.classList.remove('modal--hidden');
 
-  if (localStorage.getItem('user')) {
-    modalName.value = localStorage.getItem('user');
-    modalPhone.focus();
-  } else {
-    modalName.focus();
-  }
-
   body.style = 'position: fixed; overflow: hidden';
 
   modalCallMe.addEventListener('click', onOverlay);
   document.addEventListener('keydown', onModalEscPress);
+
+  if (localStorage.getItem('user') && localStorage.getItem('phone') && localStorage.getItem('letter')) {
+    modalName.value = localStorage.getItem('user');
+    modalLetter.value = localStorage.getItem('letter');
+    modalPhone.value = localStorage.getItem('phone');
+
+    orderButton.focus();
+  } else {
+    modalName.focus();
+  }
 }
 
 function onOverlay(evt) {
