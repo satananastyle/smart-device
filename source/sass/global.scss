@@ -3,6 +3,8 @@ html {
   height: 100%;
   margin: 0;
   padding: 0;
+
+  scroll-behavior: smooth;
 }
 
 *,
@@ -28,6 +30,10 @@ body {
 img {
   max-width: 100%;
   height: auto;
+}
+
+input, textarea, select {
+    -webkit-appearance: none;
 }
 
 .container {
@@ -82,17 +88,4 @@ img {
 
 .no-js {
   display: block;
-}
-
-.overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 10;
-
-  width: 100%;
-  height: 100%;
-  overflow: scroll;
-
-  background: rgba(0, 0, 0, 0.5);
 }

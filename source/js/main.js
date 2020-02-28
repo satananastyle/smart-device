@@ -124,12 +124,9 @@ if (questionButton) {
 //
 
 // модальное окно
-
 var ESC_CODE = 27;
 
 var body = document.querySelector('body');
-
-var overlay = document.querySelector('.overlay');
 
 var callMeButton = document.querySelector('.header__nav .button');
 var modalCallMe = document.querySelector('.modal');
@@ -143,20 +140,26 @@ if (callMeButton) {
 }
 
 function openModal() {
-  overlay.classList.remove('visually-hidden');
+  modalCallMe.classList.remove('modal--hidden');
 
-  body.style = 'position: fixed; overflow-y: scroll';
+  body.style = 'position: fixed; overflow: hidden';
 
-  overlay.addEventListener('click', onCloseButton);
+  modalCallMe.addEventListener('click', onOverlay);
   document.addEventListener('keydown', onModalEscPress);
+}
+
+function onOverlay(evt) {
+  if (evt.target === modalCallMe) {
+    closeModal();
+  }
 }
 
 function closeModal() {
   form.reset();
   clearForm();
 
-  if (!modalCallMe.classList.contains('vissualy-hidden')) {
-    modalCallMe.classList.add('visually-hidden');
+  if (!modalCallMe.classList.contains('modal--hidden')) {
+    modalCallMe.classList.add('modal--hidden');
     closeCallMe.removeEventListener('click', onCloseButton);
     orderButton.removeEventListener('click', onOrderButton);
   }
@@ -164,10 +167,10 @@ function closeModal() {
   closeCallMe.removeEventListener('click', onCloseButton);
   orderButton.removeEventListener('click', onOrderButton);
 
-  overlay.classList.add('visually-hidden');
-  body.style = 'overflow: auto';
+  modalCallMe.classList.add('modal--hidden');
+  body.removeAttribute('style');
 
-  overlay.removeEventListener('click', onCloseButton);
+  modalCallMe.removeEventListener('click', onOverlay);
   document.removeEventListener('keydown', onModalEscPress);
 }
 
@@ -175,7 +178,7 @@ function onCallMeButton(evt) {
   evt.preventDefault();
   evt.stopPropagation();
 
-  modalCallMe.classList.remove('visually-hidden');
+  modalCallMe.classList.remove('modal--hidden');
   closeCallMe.addEventListener('click', onCloseButton);
   orderButton.addEventListener('click', onOrderButton);
 
@@ -215,6 +218,18 @@ function clearForm() {
     element.removeAttribute('style');
   });
 }
+
+Array.prototype.forEach.call(inputs, function (element) {
+  element.oninput = function () {
+    element.removeAttribute('style');
+  };
+});
+
+Array.prototype.forEach.call(checkboxes, function (element) {
+  element.onclick = function () {
+    element.removeAttribute('style');
+  };
+});
 
 window.iMaskJS(document.querySelector('.feedback input[type="tel"]'), {mask: '+{7}(000)000-00-00'});
 window.iMaskJS(document.querySelector('.modal input[type="tel"]'), {mask: '+{7}(000)000-00-00'});

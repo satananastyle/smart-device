@@ -1,14 +1,31 @@
 .modal {
   position: fixed;
-  top: 50%;
-  left: 50%;
-  z-index: 20;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 15;
 
-  max-height: 95%;
-  overflow: auto;
+  display: flex;
+  justify-content: center;
+  box-sizing: border-box;
+  width: 100vw;
+  max-height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
 
-  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.5);
 
+  .modal__wrapper {
+    position: relative;
+
+    box-sizing: border-box;
+    width: 544px;
+    margin-top: auto;
+    margin-bottom: auto;
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
 
   form {
     position: relative;
@@ -414,4 +431,8 @@
       transition: 0.5s;
     }
   }
+}
+
+.modal--hidden {
+  display: none;
 }
