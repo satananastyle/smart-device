@@ -79,11 +79,10 @@
     display: block;
     width: 93px;
 
-    color: white;
+    color: rgba(255, 255, 255, 0.5);
     text-decoration: none;
 
     transform: rotate(-90deg);
-    opacity: 0.5;
 
     @include mono(14px, 16px);
 

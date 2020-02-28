@@ -76,7 +76,7 @@ function getResultValidation(evt, currentForm) {
   if (currentName) {
     var errorName = getNameError(currentName.value);
     if (errorName !== '') {
-      currentName.style = 'border-color: red';
+      currentName.style.border = '1px solid red';
     } else {
       currentName.removeAttribute('style');
     }
@@ -85,21 +85,21 @@ function getResultValidation(evt, currentForm) {
   if (currentLetter) {
     var errorLetter = getNameError(currentLetter.value);
     if (errorLetter !== '') {
-      currentLetter.style = 'border-color: red';
+      currentLetter.style.border = '1px solid red';
     } else {
       currentLetter.removeAttribute('style');
     }
   }
 
   if (errorPhone) {
-    currentInput.style = 'border-color: red';
+    currentInput.style.border = '1px solid red';
   } else {
     currentInput.removeAttribute('style');
   }
 
   if (currentCheckbox) {
     if (!currentCheckbox.checked) {
-      visuallyCheckbox.style = 'border-color: red';
+      visuallyCheckbox.style.border = '1px solid red';
     } else {
       visuallyCheckbox.removeAttribute('style');
     }
@@ -110,7 +110,7 @@ function getResultValidation(evt, currentForm) {
   }
 
   localStorage.setItem('user', currentName.value);
-  // localStorage.setItem('phone', currentInput.value);
+  localStorage.setItem('phone', currentInput.value);
   localStorage.setItem('letter', currentLetter.value);
 
   currentForm.reset();
@@ -154,7 +154,8 @@ if (callMeButton) {
 function openModal() {
   modalCallMe.classList.remove('modal--hidden');
 
-  body.style = 'position: fixed; overflow: hidden';
+  body.style.position = 'fixed';
+  body.style.overflow = 'hidden';
 
   modalCallMe.addEventListener('click', onOverlay);
   document.addEventListener('keydown', onModalEscPress);
