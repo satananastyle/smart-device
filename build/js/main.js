@@ -68,39 +68,51 @@ function getResultValidation(evt, currentForm) {
   var currentInput = currentForm.querySelector('input[type="tel"]');
   var currentName = currentForm.querySelector('input[type="text"]');
   var currentCheckbox = currentForm.querySelector('input[type="checkbox"]');
+  var currentLetter = currentForm.querySelector('textarea');
   var visuallyCheckbox = currentForm.querySelector('input[type="checkbox"] + label span');
-
 
   var errorPhone = getPhoneError(currentInput.value);
 
   if (currentName) {
     var errorName = getNameError(currentName.value);
     if (errorName !== '') {
-      currentName.style.border = '1px solid red';
-      currentName.setCustomValidity(errorName);
+      currentName.style = 'border-color: red';
     } else {
       currentName.removeAttribute('style');
     }
   }
 
+  if (currentLetter) {
+    var errorLetter = getNameError(currentLetter.value);
+    if (errorLetter !== '') {
+      currentLetter.style = 'border-color: red';
+    } else {
+      currentLetter.removeAttribute('style');
+    }
+  }
+
+  if (errorPhone) {
+    currentInput.style = 'border-color: red';
+  } else {
+    currentInput.removeAttribute('style');
+  }
+
   if (currentCheckbox) {
     if (!currentCheckbox.checked) {
-      visuallyCheckbox.style.border = '1px solid red';
+      visuallyCheckbox.style = 'border-color: red';
     } else {
       visuallyCheckbox.removeAttribute('style');
     }
   }
 
-  if (errorPhone) {
-    currentInput.style.border = '1px solid red';
-    currentInput.setCustomValidity(errorPhone);
-  } else {
-    currentInput.removeAttribute('style');
-  }
-
-  if (errorPhone || errorName || !currentCheckbox.checked) {
+  if (errorPhone || errorName || !currentCheckbox.checked || errorLetter) {
     return 'Не все поля заполненны корректно';
   }
+
+  localStorage.setItem('user', currentName.value);
+  localStorage.setItem('phone', currentInput.value);
+  localStorage.setItem('letter', currentLetter.value);
+
   currentForm.reset();
   return '';
 }
@@ -110,18 +122,15 @@ function getResultValidation(evt, currentForm) {
 var questionButton = document.querySelector('.feedback button');
 var inputs = document.querySelectorAll('input');
 var checkboxes = document.querySelectorAll('input[type = "checkbox"] + label span');
+var letters =  document.querySelectorAll('textarea');
 
 
 if (questionButton) {
   questionButton.addEventListener('click', function (evt) {
     getResultValidation(evt, feedbackForm);
+
   });
 }
-
-// if (inputs && checkboxes) {
-//   document.addEventListener('click', clearForm);
-// }
-//
 
 // модальное окно
 var ESC_CODE = 27;
@@ -130,6 +139,8 @@ var body = document.querySelector('body');
 
 var callMeButton = document.querySelector('.header__nav .button');
 var modalCallMe = document.querySelector('.modal');
+var modalName = modalCallMe.querySelector('input[name="user"]');
+var modalPhone = modalCallMe.querySelector('input[type="tel"]');
 var closeCallMe = modalCallMe.querySelector('button[type="button"]');
 var orderButton = modalCallMe.querySelector('button[type="submit"]');
 var form = modalCallMe.querySelector('form');
@@ -141,6 +152,13 @@ if (callMeButton) {
 
 function openModal() {
   modalCallMe.classList.remove('modal--hidden');
+
+  if (localStorage.getItem('user')) {
+    modalName.value = localStorage.getItem('user');
+    modalPhone.focus();
+  } else {
+    modalName.focus();
+  }
 
   body.style = 'position: fixed; overflow: hidden';
 
@@ -217,6 +235,10 @@ function clearForm() {
   Array.prototype.forEach.call(checkboxes, function (element) {
     element.removeAttribute('style');
   });
+
+  Array.prototype.forEach.call(letters, function (element) {
+    element.removeAttribute('style');
+  });
 }
 
 Array.prototype.forEach.call(inputs, function (element) {
@@ -227,6 +249,12 @@ Array.prototype.forEach.call(inputs, function (element) {
 
 Array.prototype.forEach.call(checkboxes, function (element) {
   element.onclick = function () {
+    element.removeAttribute('style');
+  };
+});
+
+Array.prototype.forEach.call(letters, function (element) {
+  element.oninput = function () {
     element.removeAttribute('style');
   };
 });

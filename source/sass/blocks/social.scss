@@ -65,10 +65,11 @@
 
     ul {
       max-width: 216px;
+      margin-right: 0;
     }
 
     ul li:last-child {
-      margin: 0;
+      margin-right: 0;
     }
 
     &::after {

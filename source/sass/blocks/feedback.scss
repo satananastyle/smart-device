@@ -1,28 +1,47 @@
 .feedback {
   padding-top: 93px;
-  padding-bottom: 114px;
+  padding-bottom: 113px;
 
   color: white;
 
   background-color: $blue;
-  background-image: url("../img/airplane@1x.png"), url("../img/svg/triangles-form.svg");
+  background-image: url("../img/svg/triangles-form.svg");
   background-repeat: no-repeat;
-  background-position: left bottom 37%, right center;
+  background-position: right top 36px;
   background-size: contain;
 
   @include mono(16px, 22px);
 
-  @media (min-resolution: $retina-dpi), (min-resolution: $retina-dppx) {
-    background-image: url("../img/airplane@2x.png"), url("../img/svg/triangles-form.svg");
-  }
-
   form {
+    position: relative;
+
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
     width: 570px;
     margin-left: auto;
+
+    &::before {
+      content: "";
+      position: absolute;
+      position: absolute;
+      right: calc(100% + 113px);
+
+      width: 655px;
+      width: 689px;
+      height: 463px;
+      height: 515px;
+
+      background-image: url("../img/airplane@1x.png");
+      background-repeat: no-repeat;
+      background-position: bottom;
+      background-size: cover;
+
+      @media (min-resolution: $retina-dpi), (min-resolution: $retina-dppx) {
+        background-image: url("../img/airplane@2x.png");
+      }
+    }
   }
 
   h2 {
@@ -94,13 +113,12 @@
   textarea {
     width: 100%;
     margin-bottom: 48px;
-    padding: 13px 15px;
+    padding: 12px 15px;
 
     color: white;
 
     background-color: rgba(255, 255, 255, 0.1);
     border: 1px solid transparent;
-    border: none;
 
     resize: none;
 
@@ -198,6 +216,10 @@
       min-width: 100%;
       margin: 0 auto;
       padding: 0 62px 0 67px;
+
+      &::before {
+        display: none;
+      }
     }
 
     h2 {
