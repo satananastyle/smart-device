@@ -65,10 +65,10 @@
 
       @include hover;
     }
+  }
 
-    &--mobile {
-      display: none;
-    }
+  .homescreen__button-name--mobile {
+    display: none;
   }
 
   .homescreen__scroll {
@@ -152,12 +152,15 @@
     }
 
     .homescreen__button {
-      display: none;
       width: 290px;
       margin-left: 0;
+    }
+
+    .homescreen__button-name {
+      display: none;
 
       &--mobile {
-        display: inline-block;
+        display: inline;
       }
     }
   }

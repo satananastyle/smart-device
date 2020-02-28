@@ -266,3 +266,21 @@ Array.prototype.forEach.call(letters, function (element) {
 
 window.iMaskJS(document.querySelector('.feedback input[type="tel"]'), {mask: '+{7}(000)000-00-00'});
 window.iMaskJS(document.querySelector('.modal input[type="tel"]'), {mask: '+{7}(000)000-00-00'});
+
+var scrollBtn = document.querySelector('.homescreen__scroll');
+var advisoryBtn = document.querySelector('.homescreen__button');
+var infoNode = document.querySelector('.general');
+var advisoryNode = document.querySelector('.feedback');
+var move = new MoveTo();
+if (scrollBtn && infoNode) {
+  scrollBtn.addEventListener('click', function (evt) {
+    evt.preventDefault();
+    move.move(infoNode);
+  });
+}
+if (advisoryBtn && advisoryNode) {
+  advisoryBtn.addEventListener('click', function (evt) {
+    evt.preventDefault();
+    move.move(advisoryNode);
+  });
+}
