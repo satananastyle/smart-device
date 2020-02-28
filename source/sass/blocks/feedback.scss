@@ -5,15 +5,15 @@
   color: white;
 
   background-color: $blue;
-  background-image: url("../img/airplane@1x.png");
+  background-image: url("../img/airplane@1x.png"), url("../img/svg/triangles-form.svg");
   background-repeat: no-repeat;
-  background-position: right bottom 37%;
-  background-size: 91%;
+  background-position: left bottom 37%, right center;
+  background-size: contain;
 
   @include mono(16px, 22px);
 
   @media (min-resolution: $retina-dpi), (min-resolution: $retina-dppx) {
-    background-image: url("../img/airplane@2x.png");
+    background-image: url("../img/airplane@2x.png"), url("../img/svg/triangles-form.svg");
   }
 
   form {

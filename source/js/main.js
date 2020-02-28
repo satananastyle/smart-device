@@ -40,8 +40,6 @@ function openDescription(evt) {
 
 // валидация
 
-window.iMaskJS(document.querySelector('.feedback input[type="tel"]'), {mask: '+{7}(000)000-00-00'});
-window.iMaskJS(document.querySelector('.modal input[type="tel"]'), {mask: '+{7}(000)000-00-00'});
 
 var MAX_LENGTH = 16;
 
@@ -107,7 +105,7 @@ function getResultValidation(evt, currentForm) {
   return '';
 }
 
-// модальное окно
+// формы
 
 var questionButton = document.querySelector('.feedback button');
 var inputs = document.querySelectorAll('input');
@@ -124,15 +122,8 @@ if (questionButton) {
 //   document.addEventListener('click', clearForm);
 // }
 //
-function clearForm() {
-  Array.prototype.forEach.call(inputs, function (element) {
-    element.removeAttribute('style');
-  });
 
-  Array.prototype.forEach.call(checkboxes, function (element) {
-    element.removeAttribute('style');
-  });
-}
+// модальное окно
 
 var ESC_CODE = 27;
 
@@ -149,6 +140,15 @@ var feedbackForm = document.querySelector('.feedback form');
 
 if (callMeButton) {
   callMeButton.addEventListener('click', onCallMeButton);
+}
+
+function openModal() {
+  overlay.classList.remove('visually-hidden');
+
+  body.style = 'position: fixed; overflow-y: scroll';
+
+  overlay.addEventListener('click', onCloseButton);
+  document.addEventListener('keydown', onModalEscPress);
 }
 
 function closeModal() {
@@ -169,13 +169,6 @@ function closeModal() {
 
   overlay.removeEventListener('click', onCloseButton);
   document.removeEventListener('keydown', onModalEscPress);
-}
-
-function openModal() {
-  overlay.classList.remove('visually-hidden');
-
-  overlay.addEventListener('click', onCloseButton);
-  document.addEventListener('keydown', onModalEscPress);
 }
 
 function onCallMeButton(evt) {
@@ -213,24 +206,15 @@ function onModalEscPress(evt) {
   }
 }
 
-// var advantagesButton = document.querySelector('.homescreen__scroll');
-// var feedbackButtons = document.querySelectorAll('.homescreen__button');
-// var advantagesBlock = document.querySelector('#advantages');
-// var feedbackBlock = document.querySelector('#feedback');
-// var move = new window.MoveTo({tolerance: 0, duration: 800, easing: 'easeOutQuart', container: body});
-//
-// if (advantagesButton && advantagesBlock) {
-//   advantagesButton.addEventListener('click', function (evt) {
-//     evt.preventDefault();
-//     move.move(advantagesBlock);
-//   });
-// }
-//
-// if (feedbackButtons && feedbackBlock) {
-//   Array.prototype.forEach.call(feedbackButtons, function (element) {
-//     element.addEventListener('click', function (evt) {
-//       evt.preventDefault();
-//       move.move(feedbackBlock);
-//     });
-//   });
-// }
+function clearForm() {
+  Array.prototype.forEach.call(inputs, function (element) {
+    element.removeAttribute('style');
+  });
+
+  Array.prototype.forEach.call(checkboxes, function (element) {
+    element.removeAttribute('style');
+  });
+}
+
+window.iMaskJS(document.querySelector('.feedback input[type="tel"]'), {mask: '+{7}(000)000-00-00'});
+window.iMaskJS(document.querySelector('.modal input[type="tel"]'), {mask: '+{7}(000)000-00-00'});
