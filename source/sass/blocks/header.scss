@@ -75,7 +75,7 @@
   .header {
     background-image: url("../img/circuit-board-tablet@1x.png"), url("../img/header-tablet@1x.png");
     background-position: top, center;
-    background-size: 100vw auto;
+    background-size: 100vw auto, cover;
 
     @media (min-resolution: $retina-dpi), (min-resolution: $retina-dppx) {
       background-image: url("../img/circuit-board-tablet@2x.png"), url("../img/header-tablet@2x.png");
@@ -119,7 +119,7 @@
   .header {
     background-image: url("../img/circuit-board-mobile@1x.png"), url("../img/header-mobile@1x.png");
     background-position: top right, center;
-    background-size: 320px auto, 100vw auto;
+    background-size: 320px auto, cover;
 
     @media (min-resolution: $retina-dpi), (min-resolution: $retina-dppx) {
       background-image: url("../img/circuit-board-mobile@2x.png"), url("../img/header-mobile@2x.png");
