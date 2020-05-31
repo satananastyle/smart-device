@@ -47,6 +47,8 @@
 
     opacity: 0.5;
 
+    @include not-hover;
+
     &:hover,
     &:focus {
       @include hover;

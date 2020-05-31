@@ -13,6 +13,7 @@
   border-radius: 5px;
 
   @include roboto(700, 14px, 16px);
+  @include not-hover;
 
   &:hover,
   &:focus {

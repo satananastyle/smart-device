@@ -68,6 +68,8 @@
     background-color: rgba(255, 255, 255, 0.1);
     border: 1px solid transparent;
 
+    @include not-hover;
+
     &:hover,
     &:focus {
       background-color: rgba(255, 255, 255, 0.2);
@@ -121,6 +123,8 @@
     border: 1px solid transparent;
 
     resize: none;
+
+    @include not-hover;
 
     &:hover,
     &:focus {
@@ -189,6 +193,8 @@
 
     font-size: 14px;
     line-height: 16px;
+
+    @include not-hover;
 
     &:hover,
     &:focus {

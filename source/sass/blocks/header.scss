@@ -55,6 +55,7 @@
     color: white;
     text-decoration: none;
 
+    @include not-hover;
     @include mono(16px, 18px);
 
     &:hover,

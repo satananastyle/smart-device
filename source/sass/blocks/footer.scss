@@ -35,6 +35,8 @@
       background-position: center;
       border: none;
 
+      @include not-hover;
+
       &:hover,
       &:focus {
         @include hover;

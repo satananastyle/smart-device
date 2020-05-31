@@ -30,6 +30,8 @@
     font-size: 0;
     line-height: 0;
 
+    @include not-hover;
+
     &:hover,
     &:focus {
       @include hover;

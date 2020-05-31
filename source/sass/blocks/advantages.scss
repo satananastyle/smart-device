@@ -22,6 +22,8 @@
     border: 1px solid rgba(0, 0, 0, 0.2);
     border-left: 3px solid $blue;
 
+    @include not-hover;
+
     &:hover,
     &:focus {
       background-color: $blue;

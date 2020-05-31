@@ -34,6 +34,7 @@
     opacity: 0.5;
 
     @include mono(15px, 25px);
+    @include not-hover;
 
     &:hover,
     &:focus {

@@ -57,6 +57,7 @@
     border: 1px solid $blue;
     border-radius: 5px;
 
+    @include not-hover;
     @include roboto(700, 16px, 19px);
 
     &:hover,
@@ -84,6 +85,7 @@
 
     transform: rotate(-90deg);
 
+    @include not-hover;
     @include mono(14px, 16px);
 
     &:hover,
